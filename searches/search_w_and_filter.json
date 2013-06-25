@@ -1,0 +1,14 @@
+{
+    "query": {
+    "filtered" : {
+        "query" : {
+            "term" : { "platform" : "android" }
+        },
+        "filter" : {
+            "and" : [ 
+                {"term": {"level" : "error"}}
+            ]
+        }
+    }
+ }
+}

@@ -1,0 +1,36 @@
+{
+  orig_id: "518bf525e93cf803751aec93",
+  agent_id: "51683faf6831380002000052",
+  log_id: "c4e23f60-c710-46af-bfac-8082aa353ff2",
+  start_time: "2013-05-09T16:08:08Z",
+  created_at: "2013-05-09T19:11:47Z",
+  time_zone: null,
+  app_id: "51347635a6fe47000200000d",
+  record_date: "05/09/13",
+  device_id: "51683faf6831380002000051",
+  loc: {
+    lat: 0,
+    long: 0
+  },
+  level: "error",
+  is_error_or_crash: true,
+  tags: [],
+  session_id: null,
+  message: "IO error : EOCD not found; not a Zip archive?",
+  filename: null,
+  line_number: "-1",
+  ip_address: "158.117.191.250",
+  error_name: null,
+  error_reason: null,
+  error_detail: null,
+  raw_agent_time_str: "2013-05-09T16:08:08Z",
+  raw_agent_epoch_str: 1368115688,
+  
+    manufacture: "asus",
+    model: "ASUS Transformer Pad TF300T",
+    os_version: "16",
+    platform: "Android",
+    app_version: "1.1",
+    agent_version: "1.5.3"
+  
+}

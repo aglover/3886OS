@@ -1,0 +1,31 @@
+{
+
+  log_id: "0fe5bbcc-5e95-40f3-8653-1914dbc9278a",
+  start_time: "2013-04-27T21:00:25Z",
+  created_at: "2013-04-28T01:32:37Z",
+  time_zone: null,
+  app_id: "4f7332a356ec2c000100011e",
+  record_date: "04/09/13",
+  device_id: "514cff7b1795680002000385",
+  level: "crash",
+  is_error_or_crash: true,
+  tags: [],
+  session_id: "12787fca-a0bd-4245-acee-a6460a4cf948",
+  message: "Uncaught Exception java.lang.NullPointerException",
+  filename: null,
+  line_number: "-1",
+  ip_address: "69.116.59.79",
+  error_name: "class java.lang.NullPointerException",
+  error_reason: null,
+  error_detail: "java.lang.NullPointerException",
+  raw_agent_time_str: "2013-04-27T21:00:25Z",
+  raw_agent_epoch_str: 1367096425,
+
+    manufacture: "motorola",
+    model: "XT907",
+    os_version: "16",
+    platform: "Android",
+    app_version: "2.1",
+    agent_version: "1.5.2"
+
+}

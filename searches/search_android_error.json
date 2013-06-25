@@ -1,0 +1,12 @@
+{"explain": true,
+	"query": 
+	{ "filtered" : 
+		{ "filter" : 
+			{  
+			"query" : { "term" : { "platform" : "android" } } 
+			},
+     		"query" : { "term" : {"level" : "error"} } ,
+     		"query" : { "term" : {"message" : "eocd"} } 
+     	} 
+     }
+   }
