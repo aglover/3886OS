@@ -19,11 +19,10 @@
   error_detail: "java.lang.NullPointerException",
   raw_agent_time_str: "2013-04-29T00:28:52Z",
   raw_agent_epoch_str: 1367195332,
-    manufacture: "Amazon",
-    model: "Kindle Fire",
-    os_version: "10",
-    platform: "Android",
-    app_version: "2.2",
-    agent_version: "1.5.2"
-
+  manufacture: "Amazon",
+  model: "Kindle Fire",
+  os_version: "10",
+  platform: "Android",
+  app_version: "2.2",
+  agent_version: "1.5.2"
 }

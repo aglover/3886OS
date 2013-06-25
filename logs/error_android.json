@@ -25,12 +25,10 @@
   error_detail: null,
   raw_agent_time_str: "2013-05-09T16:08:08Z",
   raw_agent_epoch_str: 1368115688,
-  
-    manufacture: "asus",
-    model: "ASUS Transformer Pad TF300T",
-    os_version: "16",
-    platform: "Android",
-    app_version: "1.1",
-    agent_version: "1.5.3"
-  
-}
+  manufacture: "asus",
+  model: "ASUS Transformer Pad TF300T",
+  os_version: "16",
+  platform: "Android",
+  app_version: "1.1",
+  agent_version: "1.5.3"
+ }

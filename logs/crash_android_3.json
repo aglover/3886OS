@@ -1,5 +1,4 @@
 {
-
   log_id: "0fe5bbcc-5e95-40f3-8653-1914dbc9278a",
   start_time: "2013-04-27T21:00:25Z",
   created_at: "2013-04-28T01:32:37Z",
@@ -20,12 +19,10 @@
   error_detail: "java.lang.NullPointerException",
   raw_agent_time_str: "2013-04-27T21:00:25Z",
   raw_agent_epoch_str: 1367096425,
-
-    manufacture: "motorola",
-    model: "XT907",
-    os_version: "16",
-    platform: "Android",
-    app_version: "2.1",
-    agent_version: "1.5.2"
-
+  manufacture: "motorola",
+  model: "XT907",
+  os_version: "16",
+  platform: "Android",
+  app_version: "2.1",
+  agent_version: "1.5.2"
 }

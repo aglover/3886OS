@@ -25,11 +25,10 @@
   error_detail: null,
   raw_agent_time_str: "2013-05-01T14:40:59Z",
   raw_agent_epoch_str: 1367419259716637,
-      manufacture: "Apple",
-    model: "iPad 2 (WiFi)",
-    os_version: "6.0",
-    platform: "iOS",
-    app_version: "3.0.1.8",
-    agent_version: "1.7.3"
-  
+  manufacture: "Apple",
+  model: "iPad 2 (WiFi)",
+  os_version: "6.0",
+  platform: "iOS",
+  app_version: "3.0.1.8",
+  agent_version: "1.7.3"
 }
