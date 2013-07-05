@@ -1,0 +1,1 @@
+{"query":{"bool":{"must":[{"query_string":{"query":"level:crash"}},{"query_string":{"query":"platform:Android"}},{"query_string":{"query":"message:*ClassCastException*"}}]}}}
