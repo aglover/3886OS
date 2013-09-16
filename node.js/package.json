@@ -1,0 +1,11 @@
+{
+	"name" : "node-es-walkthrough",
+	"version" : "0.0.1",
+	"dependencies":{
+		"elasticsearchclient" : "latest",
+		"mocha" : "latest",
+		"should" : "latest",
+		"coffee-script" : "latest"
+	}
+
+}
