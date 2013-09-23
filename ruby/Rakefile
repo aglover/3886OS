@@ -1,0 +1,8 @@
+require 'rake/testtask'
+require 'bundler/setup'
+
+task :default => [:test]
+
+Rake::TestTask.new(:test) do |tsk|
+  tsk.test_files = FileList['*_test.rb']
+end
