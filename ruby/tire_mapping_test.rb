@@ -17,7 +17,7 @@ class TireMappingTest < Test::Unit::TestCase
 	  end
 	end
 
-	def testIndexMappingAndSearch
+	def test_index_mapping_and_search
 	  Tire.index 'beer_recipes' do
 			store type: 'beer',
         name: "Todd Enders' Witbier",

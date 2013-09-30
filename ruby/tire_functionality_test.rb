@@ -17,7 +17,7 @@ class TireFunctionalityTest < Test::Unit::TestCase
 		end
 	end
 
-	def testIndexSearchWithBeerClass
+	def test_index_search_with_beer_class
 		Tire.configure do
 			wrapper Beer #forces results to be of type beer!
 	  end
@@ -38,7 +38,7 @@ class TireFunctionalityTest < Test::Unit::TestCase
     assert_equal "Todd Enders' Witbier", results[0].name
 	end
 
-	def testIndexAndSearchWithoutMapping
+	def test_index_and_search_without_mapping
 		Tire.index 'beer_recipes' do
 
 			store type: 'beer',
@@ -59,7 +59,7 @@ class TireFunctionalityTest < Test::Unit::TestCase
   	assert_equal "Todd Enders' Witbier", search_res.results[0].name
 	end
 
-	def testIndexAndSearchWithoutMappingNotFound
+	def test_index_and_search_without_mapping_not_found
 		Tire.index 'beer_recipes' do
 
 			store type: 'beer',
