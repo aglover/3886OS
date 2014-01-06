@@ -1,0 +1,5 @@
+{
+    "query" : {
+        "term" : { "style" : "wit" }
+    }
+}

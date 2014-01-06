@@ -1,0 +1,9 @@
+{ 
+	"mappings" : {
+	  "beer" : {
+	    "properties" : {
+	      "ingredients" : { "type" : "string", "analyzer" : "snowball" }
+	    }
+	   }
+ }
+}

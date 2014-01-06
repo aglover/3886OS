@@ -2,7 +2,6 @@ source :rubygems
 
 gem 'tire'
 gem 'test-unit'
-# gem 'yajl'
 gem 'shoulda'
 gem 'shoulda-context'
 gem 'rest-client'
