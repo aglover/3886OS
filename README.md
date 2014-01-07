@@ -86,15 +86,18 @@ curl -XGET 'http://localhost:9200/_cluster/nodes?pretty=true'
 
 You should see a JSON response listing 3 Elasticsearch nodes in your cluster. 
 
-Just for fun, Control-C one of your nodes (`node-1` is a fun one!) and watch the log outputs -- you should see the cluster notice one node missing and if you happened to kill the master, you'll see a new master elected! Not bad, eh?
+Just for fun, Ctrl+C one of your nodes (`node-1` is a fun one!) and watch the log outputs -- you should see the cluster notice one node missing and if you happened to kill the master, you'll see a new master elected! Not bad, eh?
 
 For more information, see:
 
   * [Effortless ElasticSearch Clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/)
 
+
+
 ## Helpful Resources
 
   * [The Disco Blog](http://thediscoblog.com/)
+    * [All Elasticsearch articles](http://thediscoblog.com/blog/categories/elasticsearch/)
   * [elasticsearch.org](http://www.elasticsearch.org/)
 
 
