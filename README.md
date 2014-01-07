@@ -12,21 +12,21 @@ User queries are becoming more complex and personalized over time, and much of t
 
 ## Enter Elasticsearch
 
-"ElasticSearch is a distributed, RESTful, free/open source search server based on Apache Lucene."
+"Elasticsearch is a distributed, RESTful, free/open source search server based on Apache Lucene."
 
 
 [Elasticsearch](http://www.elasticsearch.org/) is one of a number of open source search platforms. Its service is to offer an additional component (a searchable repository) to an application that already has a database and web front-end. Elasticsearch provides the search algorithms and related infrastructure for your application. You simply upload application data into the Elasticsearch datastore and interact with it via RESTful URLs. You can do this either directly or indirectly via a library like cURL or a client library, like Jest for Java.
 
 The architecture of Elasticsearch is distinctly different from its predecessors in that it is expressly built with horizontal scaling in mind. Unlike some other search platforms, Elasticsearch is designed to be distributed. This feature dovetails quite nicely with the rise of cloud and big data technologies. Elasticsearch is built on top of one of the more stable open source search engines, Lucene, and it works similarly to a schema-less JSON document datastore. Its singular purpose is to enable text-based searching.
 
-> "ElasticSearch is a distributed, RESTful, free/open source search server based on Apache Lucene."
+> "Elasticsearch is a distributed, RESTful, free/open source search server based on Apache Lucene."
 
 Finally, Elasticsearch is written in Java so it requires you have a JVM, healthy memory and enough space to index documents. Basically think of it as you would a database where I/O is fundamentally important. 
 
 For more information, see:
 
   * [The Democratization of Search](http://thediscoblog.com/blog/2013/05/14/the-democratization-of-search/)
-  * [Java development 2.0: Scalable searching with ElasticSearch](http://www.ibm.com/developerworks/java/library/j-javadev2-24/index.html?ca=drs-)
+  * [Java development 2.0: Scalable searching with Elasticsearch](http://www.ibm.com/developerworks/java/library/j-javadev2-24/index.html?ca=drs-)
 
 ### Installing Elasticsearch
 
@@ -66,14 +66,14 @@ Now Elasticsearch is up and running!
 
 For more information, see:
 
-  * [ElasticSearch on EC2 in Less Than 60 Seconds](http://thediscoblog.com/blog/2013/05/17/elasticsearch-on-ec2-in-less-than-60-seconds/)
+  * [Elasticsearch on EC2 in Less Than 60 Seconds](http://thediscoblog.com/blog/2013/05/17/elasticsearch-on-ec2-in-less-than-60-seconds/)
   * [Elasticsearch in a Box](http://thediscoblog.com/blog/2013/11/25/elasticsearch-in-a-box/)
 
 ### Clustering out-of-the-box
 
-[ElasticSearch supports clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/); that is, you can have a series of distinct ElasticSearch instances work in a coordinated manner without much administrative intervention at all. Clustering ElasticSearch instances (or nodes) provides data redundancy as well as data availability.
+[Elasticsearch supports clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/); that is, you can have a series of distinct Elasticsearch instances work in a coordinated manner without much administrative intervention at all. Clustering Elasticsearch instances (or nodes) provides data redundancy as well as data availability.
 
-Best of all, clustering in ElasticSearch, by default, doesn't require any configuration -- nodes discover each other. To see this in action, it's easiest to run multiple Elasticsearch instances locally. For instance, take the Elasticsearch binary from [elasticsearch.com](http://www.elasticsearch.org/) and copy it into 3 different directories; for example, I've called my directories `node-1`, `node-2`, and `node-3`. 
+Best of all, clustering in Elasticsearch, by default, doesn't require any configuration -- nodes discover each other. To see this in action, it's easiest to run multiple Elasticsearch instances locally. For instance, take the Elasticsearch binary from [elasticsearch.com](http://www.elasticsearch.org/) and copy it into 3 different directories; for example, I've called my directories `node-1`, `node-2`, and `node-3`. 
 
 Open up three terminal windows and start the first one, `node-1`, using the command:
 
@@ -97,7 +97,7 @@ Just for fun, Ctrl+C one of your nodes (`node-1` is a fun one!) and watch the lo
 
 For more information, see:
 
-  * [Effortless ElasticSearch Clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/)
+  * [Effortless Elasticsearch Clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/)
 
 ### Elasticsearch terminology
 
@@ -361,9 +361,9 @@ Why wasn't anything found? The beer named "Todd Enders' Witbier" certainly conta
 
 It turns out that the words in the ingredients field are tokenized _as is_. Hence, a search for "lemons" works while "lemon" doesn't. Note: there are various mechanisms for searching, and a search on "lemon*"" should have returned a result.
 
-When a document is added into an Elasticsearch index, its fields are analyzed and converted into tokens. When you execute a search against an index, you search against those tokens. How ElasticSearch tokenizes a document is configurable.
+When a document is added into an Elasticsearch index, its fields are analyzed and converted into tokens. When you execute a search against an index, you search against those tokens. How Elasticsearch tokenizes a document is configurable.
 
-There are different ElasticSearch analyzers available -- from language analyzers that allow you to support non-English language searches to the snowball analyzer, which converts a word into its root (or stem and that process of creating a stem from a word is called stemming), yielding a simpler token. For example, a snowball of "lemons" would be "lemon". Or if the words "knocks" and "knocking" were in a snowball analyzed document, both terms would have "knock" as a stem.
+There are different Elasticsearch analyzers available -- from language analyzers that allow you to support non-English language searches to the snowball analyzer, which converts a word into its root (or stem and that process of creating a stem from a word is called stemming), yielding a simpler token. For example, a snowball of "lemons" would be "lemon". Or if the words "knocks" and "knocking" were in a snowball analyzed document, both terms would have "knock" as a stem.
 
 Take a look at the document in the `mappings` directory. You should see a JSON document like so:
 
@@ -429,14 +429,64 @@ For more information on Elasticsearch analyzers see:
 
   * [Understanding Elasticsearch Analyzers](http://thediscoblog.com/blog/2013/09/14/understanding-elasticsearch-analyzers/)
 
+### Elasticsearch client libraries
 
+Elasticsearch offers a plethora of client libraries that make integration all the easier with applications. There are libraries available for Java, .NET, Python, PHP, Ruby, NodeJS, and many, many more. In many cases, the native libraries offer a more elegant API for interacting w/Elasticsearch. 
+
+My two favorite libraries are [Tire for Ruby](http://thediscoblog.com/blog/2013/12/29/just-require-tire-to-inquire/) and Node's [Elastic Search Client](http://thediscoblog.com/blog/2013/09/21/i-like-my-elasticsearch-a-la-node-dot-js/). These libraries each have an interesting API; for instance, Tire's DSL-based API is super elegant while the Node library's syntax is perfectly suited for working with JSON. 
+
+#### Ruby's Tire
+
+```
+class TireFunctionalityTest < Test::Unit::TestCase
+
+    def setup
+        Tire.index 'beer_recipes' do
+            create
+        end
+    end
+
+    def teardown
+        Tire.index 'beer_recipes' do
+            delete
+        end
+    end
+
+    def test_index_and_search_without_mapping
+        Tire.index 'beer_recipes' do
+
+            store type: 'beer',
+            name: "Todd Enders' Witbier",
+            style: "wit, Belgian ale, wheat beer",
+            ingredients: "4.0 lbs Belgian pils malt, 4.0 lbs raw soft red winter wheat, 0.5 lbs rolled oats, 0.75 oz coriander, freshly ground Zest from two table oranges and two lemons, 1.0 oz 3.1% AA Saaz, 3/4 corn sugar for priming, Hoegaarden strain yeast"
+
+          refresh
+        end
+
+        search_res = Tire.search('beer_recipes') do
+            query do
+                term :ingredients, 'lemons'
+            end
+        end
+
+        assert_equal 1, search_res.results.size
+        assert_equal "Todd Enders' Witbier", search_res.results[0].name
+    end
+end
+```
+
+
+For more information on Elasticsearch analyzers see:
+
+  * [Just Require Tire to Inquire](http://thediscoblog.com/blog/2013/12/29/just-require-tire-to-inquire/)
+  * [I Like My Elasticsearch a La Node.js](http://thediscoblog.com/blog/2013/09/21/i-like-my-elasticsearch-a-la-node-dot-js/)
 
 
 ## Helpful Resources
 
   * [The Disco Blog](http://thediscoblog.com/)
     * [All Elasticsearch articles](http://thediscoblog.com/blog/categories/elasticsearch/)
-  * [Java development 2.0: Scalable searching with ElasticSearch](http://www.ibm.com/developerworks/java/library/j-javadev2-24/index.html?ca=drs-)
+  * [Java development 2.0: Scalable searching with Elasticsearch](http://www.ibm.com/developerworks/java/library/j-javadev2-24/index.html?ca=drs-)
   * [elasticsearch.org](http://www.elasticsearch.org/)
 
 
