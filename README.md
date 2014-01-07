@@ -260,7 +260,9 @@ The response should be as follows:
 }
 ```
 
-Search different fields
+As you can see, 3 results were returned and the returned JSON response will provide the matching content via the `_source` field in the `hits` section.
+
+Of course, you can search different fields in a document:
 
 ```
 {
@@ -270,7 +272,9 @@ Search different fields
 }
 ```
 
-Add an explain clause
+In this case, the `ingredients` field is term searched for "saaz". 
+
+You can add an explain clause to any query as well: 
 
 ```
 {
@@ -281,7 +285,9 @@ Add an explain clause
 }
 ```
 
-Search all fields 
+The resultant JSON document will contain an explanation section that'll describe how a particular result was determined to match. Like a SQL explain clause, interpreting the results requires some specialized search knowledge. 
+
+You can search all fields in a document using the `match` query and the specialized `_all` field matcher. For example, to search everything for the word "pale" you can issue the following query: 
 
 ```
 {
