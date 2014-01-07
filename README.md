@@ -10,7 +10,7 @@ When I was in high school, google was just a noun representing an incredibly lar
 
 User queries are becoming more complex and personalized over time, and much of the data required to deliver an appropriate response is inherently unstructured. Where once an `SQL LIKE` clause was good enough, today's usage sometimes calls for sophisticated algorithms. Fortunately, a number of open source and commercial platforms address the need for pluggable search technology, including Lucene, Sphinx, Solr, Amazon's CloudSearch, and Xapian. 
 
-### Enter Elasticsearch
+## Enter Elasticsearch
 
 [Elasticsearch](http://www.elasticsearch.org/) is one of a number of open source search platforms. Its service is to offer an additional component (a searchable repository) to an application that already has a database and web front-end. Elasticsearch provides the search algorithms and related infrastructure for your application. You simply upload application data into the Elasticsearch datastore and interact with it via RESTful URLs. You can do this either directly or indirectly via a library like cURL or a client library, like Jest for Java.
 
@@ -24,6 +24,12 @@ For more information, see:
 ### Installing Elasticsearch
 
 Elasticsearch is easy to install. And you have a few options ranging from installing the Elasticsearch binary locally on your computer to [running Elasticsearch in AWS](http://thediscoblog.com/blog/2013/05/17/elasticsearch-on-ec2-in-less-than-60-seconds/) to firing up a [Vagrant box already running Elasticsearch](http://thediscoblog.com/blog/2013/11/25/elasticsearch-in-a-box/). 
+
+The simplest installation, which assumes you have access to a terminal (i.e. you are on a Linux or OSX machine), is to download the binary, unzip it, change directories into the install directory and type:
+
+``` 
+> bin/elasticsearch -f
+```
 
 For more information, see:
 
@@ -43,12 +49,7 @@ For more information, see:
 ## Helpful Resources
 
   * [The Disco Blog](http://thediscoblog.com/)
-    * [Javascript](http://thediscoblog.com/blog/categories/javascript/)
-    * [Node](http://thediscoblog.com/blog/categories/node/)
-    * [Mobile](http://thediscoblog.com/blog/categories/mobile/)
-    * [HTML5](http://thediscoblog.com/blog/categories/html5/)
-    * [CoffeeScript](http://thediscoblog.com/blog/categories/coffeescript/)
-    * [jQuery Mobile](http://thediscoblog.com/blog/categories/jquery-mobile/)
+  * [elasticsearch.org](http://www.elasticsearch.org/)
 
 
 ## License
