@@ -31,6 +31,28 @@ The simplest installation, which assumes you have access to a terminal (i.e. you
 > bin/elasticsearch -f
 ```
 
+Running Elasticsearch locally is easy, but I like to keep my local machine slim and instead rely on VMs. Accordingly, if you are familiar with Vagrant, then you can download [Elasticsearch-in-a-box](https://github.com/aglover/coffer), which is a freely available Vagrant base box. Here are the required steps:
+
+First, add the Elasticsearch-in-a-box box definition:
+
+```
+> vagrant box add esinabox https://s3.amazonaws.com/coffers/esinabox.box
+```
+
+Then initialize it (you can provide any name you'd like):
+
+```
+> vagrant init 'esinabox'
+```
+
+Finally, fire it up!
+
+```
+> vagrant up
+```
+
+Now Elasticsearch is up and running!
+
 For more information, see:
 
   * [ElasticSearch on EC2 in Less Than 60 Seconds](http://thediscoblog.com/blog/2013/05/17/elasticsearch-on-ec2-in-less-than-60-seconds/)
