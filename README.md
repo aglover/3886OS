@@ -297,14 +297,14 @@ You can search all fields in a document using the `match` query and the speciali
 }
 ```
 
-Thus far, I've shown you some simple searches, however, Elasticsearch supports more complex queries via `filter`s. For example, I can issue a search for all documents that have as an ingredient Styrian hops as well as any hope w/the name "Gold" along with the style being a Wit like so:
+Thus far, I've shown you some simple searches, however, Elasticsearch supports more complex queries via `filter`s. For example, I can issue a search for all documents that have as an ingredient Styrian hops as well as any hope w/the name "Gold" (thus matching a hop named EK (aka East Kent) Goldings) along with the style being a Wit like so:
 
 ```
 {"explain": true,
     "query": 
     { "filtered" : 
         { "filter" : 
-            {  
+            {
             "query" : { "term" : { "ingredients" : "styrian" } } 
             },
             "query" : { "term" : {"ingredients" : "gold"} } ,
@@ -313,6 +313,92 @@ Thus far, I've shown you some simple searches, however, Elasticsearch supports m
      }
    }
 ```
+
+These searches barely scratch the surface of search so I encourage you to dig deeper if you want to know more. In the meantime, I'm going to show you one more aspect of search that demonstrates how powerful text search can be.
+
+#### Mapping
+
+Take a look at this recipe: 
+
+```
+{ 
+ "name": "Todd Enders' Witbier", 
+ "style": "wit, Belgian ale, wheat beer", 
+ "ingredients": "4.0 lbs Belgian pils malt, 4.0 lbs raw soft red winter wheat, 0.5 lbs rolled oats, 0.75 oz coriander, freshly ground Zest from two table oranges and two lemons, 1.0 oz 3.1% AA Saaz, 3/4 corn sugar for priming, Hoegaarden strain yeast"
+}
+```
+
+It contains the ingredient "lemons" -- try issuing a search on the term "lemon" like so:
+
+```
+{"explain": true,
+    "query" : {
+        "term" : { "ingredients" : "lemon" }
+    }
+}
+```
+
+The response should be as follows:
+
+```
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 0,
+    "max_score" : null,
+    "hits" : [ ]
+  }
+}
+```
+
+Why wasn't anything found? The beer named "Todd Enders' Witbier" certainly contains lemons!?
+
+It turns out that the words in the ingredients field are tokenized _as is_. Hence, a search for "lemons" works while "lemon" doesn't. Note: there are various mechanisms for searching, and a search on "lemon*"" should have returned a result.
+
+When a document is added into an Elasticsearch index, its fields are analyzed and converted into tokens. When you execute a search against an index, you search against those tokens. How ElasticSearch tokenizes a document is configurable.
+
+There are different ElasticSearch analyzers available -- from language analyzers that allow you to support non-English language searches to the snowball analyzer, which converts a word into its root (or stem and that process of creating a stem from a word is called stemming), yielding a simpler token. For example, a snowball of "lemons" would be "lemon". Or if the words "knocks" and "knocking" were in a snowball analyzed document, both terms would have "knock" as a stem.
+
+Take a look at the document in the `mappings` directory. You should see a JSON document like so:
+
+```
+{ 
+    "mappings" : {
+      "beer" : {
+        "properties" : {
+          "ingredients" : { "type" : "string", "analyzer" : "snowball" }
+        }
+       }
+ }
+}
+```
+
+With Elasticsearch, you can change the mapping of an index; in this case, I'm suggesting that the `ingredients` field use the snowball analyzer. Index mapping must be done _before_ any documents are added to an index. Thus, you'll need to delete the `beer_recipes` index and apply the mapping. 
+
+To delete an index, issue the following cURL command:
+
+```
+curl -XDELETE 'http://localhost:9200/beer_recipes/'
+```
+
+Then to apply the new mapping, execute the following cURL:
+
+```
+curl -XPUT 'http://localhost:9200/beer_recipes?pretty=true' -d @./mappings/mapping.json
+```
+
+Next, re-index all the recipes. 
+
+```
+curl -XPOST 'http://localhost:9200/beer_recipes/beer/_bulk?pretty=true'  --data-binary @./bulk/bulk.json
+```
+
 
 
 ## Helpful Resources
