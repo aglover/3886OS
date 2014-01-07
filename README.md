@@ -171,15 +171,92 @@ curl -XPOST 'http://localhost:9200/beer_recipes/beer/_bulk'  --data-binary @./bu
 
 #### Searching
 
+Searching is a huge subject; indeed, entire books have been written on it as well as numerous degrees earned on search alone. Nevertheless, I'm going to show you a few searches and I encourage you to dig deeper if you want to learn more. The Elasticsearch documentation is quite extensive. 
+
+Provided you've added, I mean, indexed a few documents either one-by-one or via the bulk API, you can quickly get a count of indexed documents like so:
+
 ```
 curl -XGET 'http://localhost:9200/beer_recipes/beer/_count' 
 ```
+
+You should see a JSON response resembling this:
+
+```
+{"count":8,"_shards":{"total":5,"successful":5,"failed":0}}
+```
+
+Where 8 is the total count of documents in the `beer_recipes` index. 
+
+You can suggest that Elasticsearch format the response JSON nicely by appending `pretty=true` to any RESTful request. 
+
+```
+curl -XGET 'http://localhost:9200/beer_recipes/beer/_count?pretty=true' 
+```
+
+In this case, the response is:
+
+```
+{
+  "count" : 8,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  }
+}
+```
+
+Search queries are just JSON documents. There are a whole host of different _types of queries_; suffice it to say that `term` queries are the easiest to grasp. Via a `term` query, you select a field in the  document and provide a search term. 
+
+If I want to find all beer documents that have the term "wit" in their `style` field then I can format the following query: 
 
 ```
 {
     "query" : {
         "term" : { "style" : "wit" }
     }
+}
+```
+
+I can then issue this query like so:
+
+```
+curl -XGET 'http://localhost:9200/beer_recipes/beer/_search?pretty=true' -d @./search/search_for_wits.json
+```
+
+where the contents of my query reside in the file `search_for_wits.json`. Note the usage of an HTTP GET against the `beer_recipes` index and `beer` type. 
+
+The response should be as follows: 
+
+```
+{
+  "took" : 44,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 3,
+    "max_score" : 0.74075186,
+    "hits" : [ {
+      "_index" : "beer_recipes",
+      "_type" : "beer",
+      "_id" : "CDTBeF_QSf2awDKOFjxJSA",
+      "_score" : 0.74075186, "_source" :  { "name": "Firefly Witbier", "style": "Wit, Belgian ale, wheat beer", "ingredients": "6lb Belgian Pils, 4.6lb White Summer Wheat, 9.6oz Flaked Oats, 1.0oz 5.2% EK Goldings - 60min, 0.5oz 5.2% Styrian Goldings - 10min, 0.5oz 5.2% Styrian Goldings - @knockout, 0.5oz Curacao Orange Peel, 0.5oz Sweet Orange Peel, 2.0oz Coriander Seed, 5ml Lactic Acid, Wyeast #3944 Belgian White Ale Yeast, Several Fireflies"}
+    }, {
+      "_index" : "beer_recipes",
+      "_type" : "beer",
+      "_id" : "gDpseUicTYutB6tZqiRqBw",
+      "_score" : 0.4375, "_source" :  { "name": "Todd Enders' Witbier", "style": "wit, Belgian ale, wheat beer", "ingredients": "4.0 lbs Belgian pils malt, 4.0 lbs raw soft red winter wheat, 0.5 lbs rolled oats, 0.75 oz coriander, freshly ground Zest from two table oranges and two lemons, 1.0 oz 3.1% AA Saaz, 3/4 corn sugar for priming, Hoegaarden strain yeast"}
+    }, {
+      "_index" : "beer_recipes",
+      "_type" : "beer",
+      "_id" : "P_YsFg3VS--EWxmRl2GYkw",
+      "_score" : 0.4375, "_source" :  { "name": "Wit", "style": "wit, Belgian ale, wheat beer", "ingredients": "4 lbs DeWulf-Cosyns 'Pils' malt, 3 lbs brewers' flaked wheat (inauthentic; will try raw wheat nest time), 6 oz rolled oats, 1 oz Saaz hops (3.3% AA), 0.75 oz bitter (Curacao) orange peel quarters (dried), 1 oz sweet orange peel (dried), 0.75 oz coriander (cracked), 0.75 oz anise seed, one small pinch cumin, 0.75 cup corn sugar (priming), 10 ml 88% food-grade lactic acid (at bottling), BrewTek 'Belgian Wheat' yeast"}
+    } ]
+  }
 }
 ```
 
