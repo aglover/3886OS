@@ -437,6 +437,8 @@ My two favorite libraries are [Tire for Ruby](http://thediscoblog.com/blog/2013/
 
 #### Ruby's Tire
 
+Tire's DSL makes working with Elasticsearch a breeze. As the following test case demonstrates, index deletion & creation, indexing, and searching is all done via the `Tire` class; moreover, the second parameter is a block specifying a particular command. 
+
 ```
 class TireFunctionalityTest < Test::Unit::TestCase
 
@@ -452,7 +454,7 @@ class TireFunctionalityTest < Test::Unit::TestCase
         end
     end
 
-    def test_index_and_search_without_mapping
+    def test_index_and_search
         Tire.index 'beer_recipes' do
             store type: 'beer',
             name: "Todd Enders' Witbier",
@@ -473,6 +475,10 @@ class TireFunctionalityTest < Test::Unit::TestCase
     end
 end
 ```
+
+As you can see, the fixture in this test first creates an index (called `beer_recipes`) and finishes the test by destroying it. So far so good? The heart of this test is the `test_index_and_search` method, which uses the `store` command to index a beer -- note how in Tire's case, the document is really just a map with keys that match my recipes JSON properties. 
+
+Following the indexing of "Todd Enders' Witbier", a term search for the word "lemons" is performed on the `ingredients` field. The result of the search is an array of documents; each document has properties that match the document's keys (i.e. `name`, `ingredients`, etc).
 
 #### Node's Elastic Search Client
 
