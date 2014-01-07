@@ -297,7 +297,7 @@ You can search all fields in a document using the `match` query and the speciali
 }
 ```
 
-More complex searching
+Thus far, I've shown you some simple searches, however, Elasticsearch supports more complex queries via `filter`s. For example, I can issue a search for all documents that have as an ingredient Styrian hops as well as any hope w/the name "Gold" along with the style being a Wit like so:
 
 ```
 {"explain": true,
