@@ -12,15 +12,33 @@ User queries are becoming more complex and personalized over time, and much of t
 
 ### Enter Elasticsearch
 
-Elasticsearch is one of a number of open source search platforms. Its service is to offer an additional component (a searchable repository) to an application that already has a database and web front-end. Elasticsearch provides the search algorithms and related infrastructure for your application. You simply upload application data into the Elasticsearch datastore and interact with it via RESTful URLs. You can do this either directly or indirectly via a library like cURL or a client library, like Jest for Java.
+[Elasticsearch](http://www.elasticsearch.org/) is one of a number of open source search platforms. Its service is to offer an additional component (a searchable repository) to an application that already has a database and web front-end. Elasticsearch provides the search algorithms and related infrastructure for your application. You simply upload application data into the Elasticsearch datastore and interact with it via RESTful URLs. You can do this either directly or indirectly via a library like cURL or a client library, like Jest for Java.
 
 The architecture of Elasticsearch is distinctly different from its predecessors in that it is expressly built with horizontal scaling in mind. Unlike some other search platforms, Elasticsearch is designed to be distributed. This feature dovetails quite nicely with the rise of cloud and big data technologies. Elasticsearch is built on top of one of the more stable open source search engines, Lucene, and it works similarly to a schema-less JSON document datastore. Its singular purpose is to enable text-based searching.
 
+For more information, see:
 
+  * [The Democratization of Search]](http://thediscoblog.com/blog/2013/05/14/the-democratization-of-search/)
+  * [Java development 2.0: Scalable searching with ElasticSearch](http://www.ibm.com/developerworks/java/library/j-javadev2-24/index.html?ca=drs-)
 
 ### Installing Elasticsearch
 
-Elasticsearch is easy to install.
+Elasticsearch is easy to install. And you have a few options ranging from installing the Elasticsearch binary locally on your computer to [running Elasticsearch in AWS](http://thediscoblog.com/blog/2013/05/17/elasticsearch-on-ec2-in-less-than-60-seconds/) to firing up a [Vagrant box already running Elasticsearch](http://thediscoblog.com/blog/2013/11/25/elasticsearch-in-a-box/). 
+
+For more information, see:
+
+  * [ElasticSearch on EC2 in Less Than 60 Seconds](http://thediscoblog.com/blog/2013/05/17/elasticsearch-on-ec2-in-less-than-60-seconds/)
+  * [Elasticsearch in a Box](http://thediscoblog.com/blog/2013/11/25/elasticsearch-in-a-box/)
+
+### Clustering out-of-the-box
+
+[ElasticSearch supports clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/); that is, you can have a series of distinct ElasticSearch instances work in a coordinated manner without much administrative intervention at all. Clustering ElasticSearch instances (or nodes) provides data redundancy as well as data availability.
+
+Best of all, clustering in ElasticSearch, by default, doesn’t require any configuration – nodes discover each other.
+
+For more information, see:
+
+  * [Effortless ElasticSearch Clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/)
 
 ## Helpful Resources
 
