@@ -23,7 +23,6 @@ The architecture of Elasticsearch is distinctly different from its predecessors 
 
 Finally, Elasticsearch is written in Java so it requires you have a JVM, healthy memory and enough space to index documents. Basically think of it as you would a database where I/O is fundamentally important. 
 
-
 For more information, see:
 
   * [The Democratization of Search](http://thediscoblog.com/blog/2013/05/14/the-democratization-of-search/)
@@ -99,6 +98,20 @@ Just for fun, Ctrl+C one of your nodes (`node-1` is a fun one!) and watch the lo
 For more information, see:
 
   * [Effortless ElasticSearch Clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/)
+
+### Elasticsearch terminology
+
+Before I get to the Elasticsearch API, it's helpful to understand a few concepts related to search technology. 
+
+An _index_ is basically a database or schema. A _type_ is essentially a database table. And finally, the process of _indexing_ is inserting documents into an index. In that way, you can think of Elasticsearch as a database; what's more, layer on top of that analogy RESTful concepts and you can quickly see the following relationships: 
+
+  * Indexing (or inserting) documents is done via an HTTP PUT
+  * Searching (or selecting) documents is done via an HTTP GET
+  * Updating indexes or types or documents is done via HTTP PUT
+  * Deleting is done via HTTP DELETE
+
+In that way, you can interact with Elasticsearch via HTTP with tools like cURL and in fact, this is how I recommend you first become familiar with Elasticsearch. All client libraries use Elasticsearch's HTTP API under the covers so understanding the base API is rather important.
+
 
 ## Helpful Resources
 
