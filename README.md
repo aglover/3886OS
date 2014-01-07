@@ -107,10 +107,29 @@ An _index_ is basically a database or schema. A _type_ is essentially a database
 
   * Indexing (or inserting) documents is done via an HTTP PUT
   * Searching (or selecting) documents is done via an HTTP GET
-  * Updating indexes or types or documents is done via HTTP PUT
-  * Deleting is done via HTTP DELETE
+  * Updating indexes or types or documents is done via HTTP PUTs
+  * Deleting is done via HTTP DELETEs
 
 In that way, you can interact with Elasticsearch via HTTP with tools like cURL and in fact, this is how I recommend you first become familiar with Elasticsearch. All client libraries use Elasticsearch's HTTP API under the covers so understanding the base API is rather important.
+
+
+### The Elasticsearch HTTP API
+
+Sadly, lots of early Internet beer recipes aren't necessarily in an easily digestible format; that is, these recipes are _unstructured_ intermixed lists of directions and ingredients often originally composed in an email or forum post.
+
+So while it's hard to easily put these recipes into traditional data stores (ostensibly for easier searching), they're perfect for Elasticsearch in their current form.
+
+Accordingly, I am going to create an Elasticsearch index full of beer recipes. To create index, you use an HTTP PUT (because you are updating Elasticsearch to create an index) like so: 
+
+```
+curl -XPUT 'http://localhost:9200/beer_recipes/'
+```
+
+where `beer_recipes` is the name of the index. 
+
+In this repository, I've created a few JSON documents that represent beer recipes. 
+
+
 
 
 ## Helpful Resources
