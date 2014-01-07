@@ -119,6 +119,8 @@ Sadly, lots of early Internet beer recipes aren't necessarily in an easily diges
 
 So while it's hard to easily put these recipes into traditional data stores (ostensibly for easier searching), they're perfect for Elasticsearch in their current form.
 
+#### Index creation
+
 Accordingly, I am going to create an Elasticsearch index full of beer recipes. To create index, you use an HTTP PUT (because you are updating Elasticsearch to create an index) like so: 
 
 ```
@@ -126,6 +128,8 @@ curl -XPUT 'http://localhost:9200/beer_recipes/'
 ```
 
 where `beer_recipes` is the name of the index. 
+
+#### Indexing
 
 Next, I need to add some recipes. In this repository, I've created a few JSON documents that represent beer recipes. I will show you how to add a JSON document manually and then I'll show you a short cut script that'll add all JSON documents in the `recipes` directory.
 
@@ -145,11 +149,11 @@ The `--data` part posts the contents of the `wit_1.json` document, which looks l
  }
 ```
 
-Elasticsearch [supports bulk indexing](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html), which is much more efficient that adding one document at a time. I'm going show you how to add documents one-by-one and via the bulk API. 
+In the `beers` directory of this repository, there is a script dubbed `post_all_beers.sh` -- you can run that and it'll post all beers in the `recipes` directory one-by-one.
 
-Accordingly, in the `beers` directory of this repository, there is a script dubbed `post_all_beers.sh` -- you can run that and it'll post all beers in the `recipes` directory one-by-one.
+##### Bulk Indexing
 
-On the other hand, you can bulk index a lot of documents with one API call provided you properly create a bulk document. The format of the document for beer recipes is as follows:
+Elasticsearch [supports bulk indexing](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html), which is much more efficient that adding one document at a time. The format of the document for beer recipes is as follows:
 
 ```
 {"index": { "_index" : "beer_recipes", "_type" : "beer"} }
@@ -164,6 +168,7 @@ You'll find this JSON file in the `bulk` directory -- it's named `bulk.json` and
 ```
 curl -XPOST 'http://localhost:9200/beer_recipes/beer/_bulk'  --data-binary @./bulk/bulk.json
 ```  
+
 
 
 ## Helpful Resources
