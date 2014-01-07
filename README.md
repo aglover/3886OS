@@ -425,6 +425,10 @@ Now re-search for lemon and you should see a result like so:
 
 Now a search for "lemon" yields a result containing the word "lemons" -- keep in mind, however, that snowballing can inadvertently make your search results less relevant. Long words can be stemmed into more common but completely different words. For example, if you snowball a document that contains the word "sextant", the word "sex" will result as a stem. Thus, searches for "sextant" will also return documents that contain the word "sex" (and vice versa).
 
+For more information on Elasticsearch analyzers see:
+
+  * [Understanding Elasticsearch Analyzers](http://thediscoblog.com/blog/2013/09/14/understanding-elasticsearch-analyzers/)
+
 
 
 
