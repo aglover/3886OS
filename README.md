@@ -127,9 +127,23 @@ curl -XPUT 'http://localhost:9200/beer_recipes/'
 
 where `beer_recipes` is the name of the index. 
 
-In this repository, I've created a few JSON documents that represent beer recipes. 
+Next, I need to add some recipes. In this repository, I've created a few JSON documents that represent beer recipes. I will show you how to add a JSON document manually and then I'll show you a short cut script that'll add all JSON documents in the `recipes` directory.
 
+To manually add on recipe, you use an HTTP PUT and provide a path to the index (named `beer_recipes`); plus, you provide a _type_, which in this case named `beer`. Thus, the URL becomes: 
 
+```
+curl -XPOST 'http://localhost:9200/beer_recipes/beer' --data @es-book/beers/wit_1.json
+```
+
+The `--data` part posts the contents of the `wit_1.json` document, which looks like this:
+
+```
+ { 
+   "name": "Todd Enders' Witbier", 
+   "style": "wit, Belgian ale, wheat beer", 
+   "ingredients": "4.0 lbs Belgian pils malt, 4.0 lbs raw soft red winter wheat, 0.5 lbs rolled oats, 0.75 oz coriander, freshly ground Zest from two table oranges and two lemons, 1.0 oz 3.1% AA Saaz, 3/4 corn sugar for priming, Hoegaarden strain yeast"
+ }
+```
 
 
 ## Helpful Resources
