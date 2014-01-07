@@ -12,9 +12,17 @@ User queries are becoming more complex and personalized over time, and much of t
 
 ## Enter Elasticsearch
 
+"ElasticSearch is a distributed, RESTful, free/open source search server based on Apache Lucene."
+
+
 [Elasticsearch](http://www.elasticsearch.org/) is one of a number of open source search platforms. Its service is to offer an additional component (a searchable repository) to an application that already has a database and web front-end. Elasticsearch provides the search algorithms and related infrastructure for your application. You simply upload application data into the Elasticsearch datastore and interact with it via RESTful URLs. You can do this either directly or indirectly via a library like cURL or a client library, like Jest for Java.
 
 The architecture of Elasticsearch is distinctly different from its predecessors in that it is expressly built with horizontal scaling in mind. Unlike some other search platforms, Elasticsearch is designed to be distributed. This feature dovetails quite nicely with the rise of cloud and big data technologies. Elasticsearch is built on top of one of the more stable open source search engines, Lucene, and it works similarly to a schema-less JSON document datastore. Its singular purpose is to enable text-based searching.
+
+> "ElasticSearch is a distributed, RESTful, free/open source search server based on Apache Lucene."
+
+Finally, Elasticsearch is written in Java so it requires you have a JVM, healthy memory and enough space to index documents. Basically think of it as you would a database where I/O is fundamentally important. 
+
 
 For more information, see:
 
@@ -92,12 +100,11 @@ For more information, see:
 
   * [Effortless ElasticSearch Clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/)
 
-
-
 ## Helpful Resources
 
   * [The Disco Blog](http://thediscoblog.com/)
     * [All Elasticsearch articles](http://thediscoblog.com/blog/categories/elasticsearch/)
+  * [Java development 2.0: Scalable searching with ElasticSearch](http://www.ibm.com/developerworks/java/library/j-javadev2-24/index.html?ca=drs-)
   * [elasticsearch.org](http://www.elasticsearch.org/)
 
 
