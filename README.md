@@ -31,6 +31,10 @@ The simplest installation, which assumes you have access to a terminal (i.e. you
 > bin/elasticsearch -f
 ```
 
+Boom, you are done!
+
+#### Elasticsearch-in-a-box
+
 Running Elasticsearch locally is easy, but I like to keep my local machine slim and instead rely on VMs. Accordingly, if you are familiar with Vagrant, then you can download [Elasticsearch-in-a-box](https://github.com/aglover/coffer), which is a freely available Vagrant base box. Here are the required steps:
 
 First, add the Elasticsearch-in-a-box box definition:
