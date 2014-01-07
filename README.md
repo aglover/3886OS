@@ -403,7 +403,7 @@ Now re-search for lemon and you should see a result like so:
 
 ```
 {
-  "took" : 3,
+  "took" : 2,
   "timed_out" : false,
   "_shards" : {
     "total" : 5,
@@ -414,40 +414,16 @@ Now re-search for lemon and you should see a result like so:
     "total" : 1,
     "max_score" : 0.17568314,
     "hits" : [ {
-      "_shard" : 4,
-      "_node" : "EyCfh20GTfShdiWs1g66aw",
       "_index" : "beer_recipes",
       "_type" : "beer",
       "_id" : "waVSJK2kTI-ycX_hurAJ_Q",
-      "_score" : 0.17568314, "_source" :  { "name": "Todd Enders' Witbier", "style": "wit, Belgian ale, wheat beer", "ingredients": "4.0 lbs Belgian pils malt, 4.0 lbs raw soft red winter wheat, 0.5 lbs rolled oats, 0.75 oz coriander, freshly ground Zest from two table oranges and two lemons, 1.0 oz 3.1% AA Saaz, 3/4 corn sugar for priming, Hoegaarden strain yeast"},
-      "_explanation" : {
-        "value" : 0.17568314,
-        "description" : "weight(ingredients:lemon in 2) [PerFieldSimilarity], result of:",
-        "details" : [ {
-          "value" : 0.17568314,
-          "description" : "fieldWeight in 2, product of:",
-          "details" : [ {
-            "value" : 1.0,
-            "description" : "tf(freq=1.0), with freq of:",
-            "details" : [ {
-              "value" : 1.0,
-              "description" : "termFreq=1.0"
-            } ]
-          }, {
-            "value" : 1.4054651,
-            "description" : "idf(docFreq=1, maxDocs=3)"
-          }, {
-            "value" : 0.125,
-            "description" : "fieldNorm(doc=2)"
-          } ]
-        } ]
-      }
+      "_score" : 0.17568314, "_source" :  { "name": "Todd Enders' Witbier", "style": "wit, Belgian ale, wheat beer", "ingredients": "4.0 lbs Belgian pils malt, 4.0 lbs raw soft red winter wheat, 0.5 lbs rolled oats, 0.75 oz coriander, freshly ground Zest from two table oranges and two lemons, 1.0 oz 3.1% AA Saaz, 3/4 corn sugar for priming, Hoegaarden strain yeast"}
     } ]
   }
 }
 ```
 
-Keep in mind that snowballing can inadvertently make your search results less relevant. Long words can be stemmed into more common but completely different words. For example, if you snowball a document that contains the word "sextant", the word "sex" will result as a stem. Thus, searches for "sextant" will also return documents that contain the word "sex" (and vice versa).
+Now a search for "lemon" yields a result containing the word "lemons" -- keep in mind, however, that snowballing can inadvertently make your search results less relevant. Long words can be stemmed into more common but completely different words. For example, if you snowball a document that contains the word "sextant", the word "sex" will result as a stem. Thus, searches for "sextant" will also return documents that contain the word "sex" (and vice versa).
 
 
 
