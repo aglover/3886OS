@@ -18,7 +18,7 @@ The architecture of Elasticsearch is distinctly different from its predecessors 
 
 For more information, see:
 
-  * [The Democratization of Search]](http://thediscoblog.com/blog/2013/05/14/the-democratization-of-search/)
+  * [The Democratization of Search](http://thediscoblog.com/blog/2013/05/14/the-democratization-of-search/)
   * [Java development 2.0: Scalable searching with ElasticSearch](http://www.ibm.com/developerworks/java/library/j-javadev2-24/index.html?ca=drs-)
 
 ### Installing Elasticsearch
