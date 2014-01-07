@@ -66,7 +66,27 @@ For more information, see:
 
 [ElasticSearch supports clustering](http://thediscoblog.com/blog/2013/09/03/effortless-elasticsearch-clustering/); that is, you can have a series of distinct ElasticSearch instances work in a coordinated manner without much administrative intervention at all. Clustering ElasticSearch instances (or nodes) provides data redundancy as well as data availability.
 
-Best of all, clustering in ElasticSearch, by default, doesn’t require any configuration – nodes discover each other.
+Best of all, clustering in ElasticSearch, by default, doesn't require any configuration -- nodes discover each other. To see this in action, it's easiest to run multiple Elasticsearch instances locally. For instance, take the Elasticsearch binary from [elasticsearch.com](http://www.elasticsearch.org/) and copy it into 3 different directories; for example, I've called my directories `node-1`, `node-2`, and `node-3`. 
+
+Open up three terminal windows and start the first one, `node-1`, using the command:
+
+``` 
+> bin/elasticsearch -f
+```
+
+You should see some output in the terminal window regarding `cluster.service` stating that this instance is the new master. 
+
+Next, fire up the other two nodes (`node-2` & `node-3`) one by one using the same `elasticsearch` command. You should see the two new nodes discover `node-1` in log statements labeled as `detected_master`. 
+
+In fact, to verify your cluster is working correctly, open up a 4th terminal window and type the following command:
+
+```
+curl -XGET 'http://localhost:9200/_cluster/nodes?pretty=true'
+```
+
+You should see a JSON response listing 3 Elasticsearch nodes in your cluster. 
+
+Just for fun, Control-C one of your nodes (`node-1` is a fun one!) and watch the log outputs -- you should see the cluster notice one node missing and if you happened to kill the master, you'll see a new master elected! Not bad, eh?
 
 For more information, see:
 
