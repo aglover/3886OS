@@ -169,6 +169,67 @@ You'll find this JSON file in the `bulk` directory -- it's named `bulk.json` and
 curl -XPOST 'http://localhost:9200/beer_recipes/beer/_bulk'  --data-binary @./bulk/bulk.json
 ```  
 
+#### Searching
+
+```
+curl -XGET 'http://localhost:9200/beer_recipes/beer/_count' 
+```
+
+```
+{
+    "query" : {
+        "term" : { "style" : "wit" }
+    }
+}
+```
+
+Search different fields
+
+```
+{
+    "query" : {
+        "term" : { "ingredients" : "saaz" }
+    }
+}
+```
+
+Add an explain clause
+
+```
+{
+    "explain": true,
+    "query" : {
+        "term" : { "ingredients" : "styrian" }
+    }
+}
+```
+
+Search all fields 
+
+```
+{
+    "query" : {
+        "match" : { "_all" : "pale" }
+    }
+}
+```
+
+More complex searching
+
+```
+{"explain": true,
+    "query": 
+    { "filtered" : 
+        { "filter" : 
+            {  
+            "query" : { "term" : { "ingredients" : "styrian" } } 
+            },
+            "query" : { "term" : {"ingredients" : "gold"} } ,
+            "query" : { "term" : {"style" : "wit"} } 
+        } 
+     }
+   }
+```
 
 
 ## Helpful Resources
