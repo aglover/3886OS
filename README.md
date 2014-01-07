@@ -396,7 +396,7 @@ curl -XPUT 'http://localhost:9200/beer_recipes?pretty=true' -d @./mappings/mappi
 Next, re-index all the recipes. 
 
 ```
-curl -XPOST 'http://localhost:9200/beer_recipes/beer/_bulk?pretty=true'  --data-binary @./bulk/bulk.json
+curl -XPOST 'http://localhost:9200/beer_recipes/beer/_bulk?pretty=true' --data-binary @./bulk/bulk.json
 ```
 
 Now re-search for lemon and you should see a result like so:
