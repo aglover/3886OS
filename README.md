@@ -153,9 +153,9 @@ On the other hand, you can bulk index a lot of documents with one API call provi
 
 ```
 {"index": { "_index" : "beer_recipes", "_type" : "beer"} }
- { "name": "AAA Westvleteren 12 (D-180 variation)", "style": "Belgian Ale", "ingredients": "12.5 lbs Dingemann's Belgian Pilsner, 2.00 lbs Dingemann's Belgian Pale, 0.10 lbs Belgian Debittered Black, 0.15 lbs Belgian Special B, 3.00 lbs D-180 Candi Syrup, 8.0 gallons (filtered), Brewers Gold 1.00 oz 60 min, Hersbrucker 1.00 30 min, Styrian Goldings 1.00 15 min, White Labs WL 530 Westmalle strain (2.0 liter starter), 1 cap of servomyces, 2 tsp gypsum"}
- {"index": { "_index" : "beer_recipes", "_type" : "beer"} }
- { "name": "Belgian Dubbel", "style": "Belgian ale, Trappist, dubbel", "ingredients": "9.5 lbs pale malt, 4 oz. Crystal malt (20 deg L), 4 oz. Brown malt, 3/4 lbs Sugar, 1 oz. Styrian (5% alpha) (bittering), .3 oz. Hallertauer (bittering), .3 oz Saaz (aroma), 3 oz priming sugar or 2-2.5 volumes of CO2, trappist ale yeast starter"}
+{ "name": "AAA Westvleteren 12 (D-180 variation)", "style": "Belgian Ale", "ingredients": "12.5 lbs Dingemann's Belgian Pilsner, 2.00 lbs Dingemann's Belgian Pale, 0.10 lbs Belgian Debittered Black, 0.15 lbs Belgian Special B, 3.00 lbs D-180 Candi Syrup, 8.0 gallons (filtered), Brewers Gold 1.00 oz 60 min, Hersbrucker 1.00 30 min, Styrian Goldings 1.00 15 min, White Labs WL 530 Westmalle strain (2.0 liter starter), 1 cap of servomyces, 2 tsp gypsum"}
+{"index": { "_index" : "beer_recipes", "_type" : "beer"} }
+{ "name": "Belgian Dubbel", "style": "Belgian ale, Trappist, dubbel", "ingredients": "9.5 lbs pale malt, 4 oz. Crystal malt (20 deg L), 4 oz. Brown malt, 3/4 lbs Sugar, 1 oz. Styrian (5% alpha) (bittering), .3 oz. Hallertauer (bittering), .3 oz Saaz (aroma), 3 oz priming sugar or 2-2.5 volumes of CO2, trappist ale yeast starter"}
  ...
 ```
 
