@@ -1,10 +1,7 @@
-{"explain": true,
-    "query": 
+{ "query": 
     { "filtered" : 
         { "filter" : 
-            {  
-            "query" : { "term" : { "ingredients" : "styrian" } } 
-            },
+            {  "query" : { "term" : { "ingredients" : "styrian" } } },
             "query" : { "term" : {"ingredients" : "gold"} } ,
             "query" : { "term" : {"style" : "wit"} } 
         } 

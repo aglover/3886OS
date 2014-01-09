@@ -482,6 +482,14 @@ Following the indexing of "Todd Enders' Witbier", a term search for the word "le
 
 #### Node's Elastic Search Client
 
+Node's Elastic Search Client is a handy library that allows you to do everything you could do via cURL with the added benefit of JavaScript callbacks. Best of all, you can use the Node Elastic Search Client in Coffeescript, which is a handy language that makes JavaScript less verbose and that ultimately compiles into JavaScript.
+
+
+If you're familiar with the typical RESTful API calls for creating and mapping indexes, plus indexing and searching documents, then you’ll find Elastic Search Client easy enough to pick up.
+
+For example, in the text case below, an index is created using the `createIndex` call; what's more, on the success callback a document is correspondingly indexed using the `index` method. Next, the actual heart of the test case searches on the term "lemons" -- following a successful search, the index is deleted via the `deleteIndex` method. 
+
+
 ```
 describe 'support traditional search behavior', ->
     before (done) ->
@@ -515,6 +523,8 @@ describe 'support traditional search behavior', ->
             done()
         .exec()
 ```
+
+Note how JavaScript (and by extension Coffeescript) blend nicely with Elasticseach as JSON is essentially first class.
 
 
 For more information on Elasticsearch analyzers see:
