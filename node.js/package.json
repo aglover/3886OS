@@ -6,5 +6,8 @@
 		"mocha" : "latest",
 		"should" : "latest",
 		"coffee-script" : "latest"
-	}
+	},
+	 "scripts" : {
+	    "test" : "./node_modules/mocha/bin/mocha --compilers coffee:coffee-script -c -t 10000 -R spec ESClientFeatures.coffee"
+  }
 }
