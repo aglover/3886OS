@@ -32,7 +32,7 @@ For more information, see:
 
 Elasticsearch is easy to install. And you have a few options ranging from installing the Elasticsearch binary locally on your computer to [running Elasticsearch in AWS](http://thediscoblog.com/blog/2013/05/17/elasticsearch-on-ec2-in-less-than-60-seconds/) to firing up a [Vagrant box already running Elasticsearch](http://thediscoblog.com/blog/2013/11/25/elasticsearch-in-a-box/). 
 
-The simplest installation, which assumes you have access to a terminal (i.e. you are on a Linux or OSX machine), is to download the binary, unzip it, change directories into the install directory and type:
+The simplest installation, which assumes you have access to a terminal (i.e. you are on a Linux or OSX machine), [is to download the binary](http://www.elasticsearch.org/download/), unzip it, change directories into the install directory and type:
 
 ``` 
 > bin/elasticsearch -f
